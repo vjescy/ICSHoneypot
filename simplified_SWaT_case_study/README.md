@@ -10,6 +10,7 @@ The testbed consists of five Docker containers, which are as follows:
 
 ## Physical process
 ![phy_proc_sswat](/materials/images/simplified_SWAT_system.png)
+**Figura 1**: Simplified SWaT system physical process
 
 ## Testbed architecture
 ![arch_sswat](/immagini_markdown/gatto.png)
