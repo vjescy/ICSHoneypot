@@ -10,21 +10,25 @@ The testbed consists of five Docker containers, which are as follows:
 
 ## Physical process
 ![phy_proc_sswat](/materials/images/simplified_SWAT_system.png)
-**Figura 1**: Simplified SWaT system physical process
+**Figure 1**: Simplified SWaT system physical process
 
 ## Testbed architecture
-![arch_sswat](/immagini_markdown/gatto.png)
-
+![arch_sswat](/materials/images/architecture_SSWAT_testbed_scipy.png)
+**Figure 2**: Architecture simplified SWaT system testbed
 
 ## SciPy-based physical process simulator lightweight property evaluation
-To facilitate a more direct comparison of resource consumption between the SciPy-based simulator and the Simulink-based simulator, another version of the SWaT testbed was created using the Simulink-based physical process simulator. This testbed version is contained in folder "/Evaluation_materials/Lightweight". As shown in Figures ... and ..., the SciPy-based simulator achieves a substantial reduction in resource usage, with RAM consumption decreasing by several gigabytes.
-![res_before](/immagini_markdown/gatto.png)
-![res_after](/immagini_markdown/gatto.png)
+To facilitate a more direct comparison of resource consumption between the SciPy-based simulator and the Simulink-based simulator, another version of the SWaT testbed was created using the Simulink-based physical process simulator. This testbed version is contained in folder "/Evaluation_materials/Lightweight". As we can see in **Figure 3** and **Figure 4**, the SciPy-based simulator achieves a substantial reduction in resource usage, with RAM consumption decreasing by several gigabytes.
+![res_scipy](/materials/images/SSWaT_resources.png)
+**Figure 3**: Simplified SWaT SciPy-based simulator resources consuption
+![res_sim](/materials/images/matlab_sim_res.png)
+**Figure 4**: Simplified SWaT Simulink-based simulator resources consuption
 
 ## SciPy-based physical process simulator interactivity property evaluation
-To evaluate the interactivity property of the SciPy-based simulator, a Python script was developed. This script establishes a Modbus connection to continuously overwrite the value in the PLC-1 output register that controls the status of the Tank 1 pump, forcing it to remain active. This Python script is contained inside "/Evaluation_materials/Interactivity". Figure ... shows an instance of the genuine simulated physical process for Tank 1, while Figure ... illustrates the simulator’s response to the manipulation of the physical process by the Python script.
-![tank_1_before](/immagini_markdown/gatto.png)
-![tank_1_after](/immagini_markdown/gatto.png)
+To evaluate the interactivity property of the SciPy-based simulator, a Python script was developed. This script establishes a Modbus connection to continuously overwrite the value in the PLC-1 output register that controls the status of the Tank 1 pump, forcing it to remain active. This Python script is contained inside "/Evaluation_materials/Interactivity". **Figure 5** shows an instance of the genuine simulated physical process for Tank 1, while **Figure 6** illustrates the simulator’s response to the manipulation of the physical process by the Python script.
+![tank_1_before](/materials/images/genuine_tank_1.png)
+**Figure 5**: Genuine physical process Tank 1
+![tank_2_after](/materials/images/manipulated_tank_1.png)
+**Figure 6**: Manipulated physical process Tank 1
 
 ## Main file descriptions
 - build_system.sh: A Bash script that builds docker images and runs the docker containers of the system (PLCs, SCADA HMI and Python-based simulator).

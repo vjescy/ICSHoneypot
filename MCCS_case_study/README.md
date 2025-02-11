@@ -23,10 +23,22 @@ The process steps are as follows:
 9) The process then repeats from step 1.
 
 ## Testbed architecture
-(immagine architecture MCCS)
+![arch_mccs](/materials/images/architecture_MCCS_testbed_scipy.png)
+**Figure 1**: Motorized cylinder control system testbed architecture
 
 ## SciPy-based physical process simulator interactivity property evaluation
-To evaluate the interactivity property of the SciPy-based simulator, a Python script has been developed. This script connects via Modbus to PLC-2, which controls Cylinder B, and continuously overwrites the register responsible for system synchronization, forcing the cylinder’s motor to stay active. This Python script is contained inside "/Evaluation_materials/Interactivity". Figure ... shows the normal operation of the cylinder, with the correct operation frequency, while Figure ... shows the physical process manipulation caused by the Python script.
+To evaluate the interactivity property of the SciPy-based simulator, a Python script has been developed. This script connects via Modbus to PLC-2, which controls Cylinder B, and continuously overwrites the register responsible for system synchronization, forcing the cylinder’s motor to stay active. This Python script is contained inside "/Evaluation_materials/Interactivity". **Figure 2** shows the normal operation of the cylinder, with the correct operation frequency, while **Figure 3** shows the physical process manipulation caused by the Python script.
+
+![gen_cyl_b](/materials/images/genuine_cylinder_B.png)
+**Figure 2**: Genuine physical process Cylinder B
+![man_cyl_b](/materials/images/manipulated_cylinder_B.png)
+**Figure 3**: Manipulated physical process Cylinder B
+
+## SciPy-based physical process simulator lightweight property evaluation
+**Figure 4** shows the RAM and CPU consumption of the SciPy-based physical process simulator of the MCCS testbed.
+
+![man_cyl_b](/materials/images/manipulated_cylinder_B.png)
+**Figure 4**: MCCS SciPy-based physical process simulator consumed resources
 
 ## Main file descriptions
 - build_system.sh: A bash script that builds docker images and runs the docker containers of the system (PLCs, SCADA HMI and SciPy-based simulator).
