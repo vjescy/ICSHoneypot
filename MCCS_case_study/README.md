@@ -37,7 +37,7 @@ To evaluate the interactivity property of the SciPy-based simulator, a Python sc
 ## SciPy-based physical process simulator lightweight property evaluation
 **Figure 4** shows the RAM and CPU consumption of the SciPy-based physical process simulator of the MCCS testbed.
 
-![man_cyl_b](/materials/images/manipulated_cylinder_B.png)
+![man_cyl_b](/materials/images/MCCS_resources.png)
 **Figure 4**: MCCS SciPy-based physical process simulator consumed resources
 
 ## Main file descriptions
