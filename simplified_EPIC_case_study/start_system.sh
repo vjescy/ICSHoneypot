@@ -1,3 +1,3 @@
 #!bin/bash/
 
-docker start ieds_sepic sim_sepic plc_sepic scada_hmi_sepic
+docker start scada_hmi_sepic sim_sepic plc_sepic ieds_sepic 
