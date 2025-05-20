@@ -27,3 +27,6 @@ docker run -d --name plc1_sswat -p 2502:502 -p 28080:8080 -p 29090:9090 plc1_ssw
 docker run -d --name plc2_sswat -p 3502:502 -p 38080:8080 -p 39090:9090 plc2_sswat_image
 docker run -d --name plc3_sswat -p 4502:502 -p 48080:8080 -p 49090:9090 plc3_sswat_image
 docker run -d --name sim_sswat -p 5502:502 -p 58080:8080 -p 59090:9090 sim_sswat_image
+sudo docker-compose up -d
+sudo docker network connect bridge scadalts
+sudo docker network connect bridge mysql
