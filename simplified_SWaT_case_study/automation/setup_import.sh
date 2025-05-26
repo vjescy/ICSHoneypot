@@ -24,4 +24,8 @@ playwright install
 echo "[+] Running SCADA-LTS login script..."
 python login_scada.py
 
+# Step 6: Run the Python automation script
+echo "[+] Running OPENPLC login script..."
+python login_openplc.py
+
 echo "[✔] Done."

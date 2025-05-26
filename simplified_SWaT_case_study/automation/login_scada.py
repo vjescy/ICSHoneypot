@@ -33,8 +33,5 @@ with sync_playwright() as p:
     # 8. Click the Import button
     page.click("input[value='Import']")
 
-    # 9. Wait for a few seconds and take a screenshot
-    page.wait_for_timeout(3000)
-    page.screenshot(path="import_done.png")
 
     browser.close()
