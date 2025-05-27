@@ -58,7 +58,7 @@ if [ -f "requirements.txt" ]; then
   pip install --upgrade pip
   pip install -r requirements.txt
 fi
-playwright install-deps
+
 echo "[+] Running setup_import.sh..."
 sudo bash setup_import.sh
 
