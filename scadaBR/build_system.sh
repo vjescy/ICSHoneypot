@@ -8,7 +8,7 @@ sudo apt update
 sudo apt install -y python3-venv docker.io
 
 echo "[+] Cleaning up old containers..."
-sudo docker rm -f plc1_sswat plc2_sswat plc3_sswat sim_sswat 2>/dev/null || true
+sudo docker rm -f scada_hmi_sswat plc1_sswat plc2_sswat plc3_sswat sim_sswat 2>/dev/null || true
 
 echo "[+] Building Docker images..."
 
@@ -28,7 +28,12 @@ cd ./plc_3_docker/
 docker build ./ -t plc3_sswat_image
 cd ..
 
+cd ./scada_hmi_docker/
+docker build ./ -t scada_hmi_sswat_image
+cd ..
+
 echo "[+] Running Docker containers..."
+docker run -d --name scada_hmi_sswat -p 1502:502 -p 18080:8080 -p 19090:9090 scada_hmi_sswat_image
 docker run -d --name plc1_sswat -p 2502:502 -p 28080:8080 -p 29090:9090 plc1_sswat_image
 docker run -d --name plc2_sswat -p 3502:502 -p 38080:8080 -p 39090:9090 plc2_sswat_image
 docker run -d --name plc3_sswat -p 4502:502 -p 48080:8080 -p 49090:9090 plc3_sswat_image
@@ -53,7 +58,7 @@ if [ -f "requirements.txt" ]; then
   pip install --upgrade pip
   pip install -r requirements.txt
 fi
-
+playwright install-deps
 echo "[+] Running setup_import.sh..."
 sudo bash setup_import.sh
 
