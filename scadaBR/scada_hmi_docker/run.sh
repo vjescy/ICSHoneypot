@@ -33,8 +33,6 @@ if ! [[ -f "$FILE" ]]; then
         echo "Error: Hosts file not found."
     fi
      
-    sudo python3 loaddata.py
-     
 fi 
     
 #make the container run infinitely 
