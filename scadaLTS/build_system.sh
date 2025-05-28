@@ -58,16 +58,16 @@ if [ -f "requirements.txt" ]; then
   pip install -r requirements.txt
 fi
 
-# echo "[+] Running setup_import.sh..."
-# sudo bash setup_import.sh
+echo "[+] Running setup_import.sh..."
+sudo bash setup_import.sh
 
-# deactivate
-# cd ..
+deactivate
+cd ..
 
-# echo "[✔] Build and setup complete."
+echo "[✔] Build and setup complete."
 
-# echo "[+] Restarting the environment..."
-# sudo bash stop_system.sh
-# sudo bash start_system.sh
+echo "[+] Restarting the environment..."
+sudo bash stop_system.sh
+sudo bash start_system.sh
 
-# echo "[✔] Restarting Complete."
+echo "[✔] Restarting Complete."

@@ -1,3 +1,6 @@
 venv/
 simplified_SWaT_case_study/env/
 scadaLTS/docker/
+scadaLTS/tomcat_log
+scadaLTS/db_conf
+scadaLTS/db_data
