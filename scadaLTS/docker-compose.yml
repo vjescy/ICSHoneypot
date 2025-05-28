@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  # --- MySQL Database ---
+  database:
+    container_name: mysql
+    image: mysql/mysql-server:5.7
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_DATABASE: scadalts
+    volumes:
+      - ./docker/volumes/mysql:/var/lib/mysql
+    network_mode: bridge
+
+  # --- ScadaLTS ---
+  scadalts:
+    image: scadalts/scadalts:latest
+    container_name: scada_lts
+    ports:
+      - "18080:8080"
+      - "502:502"
+    environment:
+      - DB_TYPE=mysql
+      - DB_HOST=mysql         # Use container name since both are on the same bridge network
+      - DB_PORT=3306
+      - DB_NAME=scadalts
+      - DB_USER=root
+      - DB_PASSWORD=root
+    depends_on:
+      - database
+    network_mode: bridge
