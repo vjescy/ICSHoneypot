@@ -5,7 +5,7 @@ cd "$(dirname "$0")"  # Change to the directory of the script
 
 echo "[+] Updating APT and installing required system packages..."
 sudo apt update
-sudo apt install -y python3-venv docker.io
+sudo apt install -y python3-venv docker.io docker-compose
 
 echo "[+] Cleaning up old containers..."
 sudo docker rm -f plc1_sswat plc2_sswat plc3_sswat sim_sswat 2>/dev/null || true
