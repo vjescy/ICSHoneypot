@@ -18,8 +18,6 @@ WORKDIR /home/ScadaBR_Installer/
 RUN sudo ./install_scadabr.sh
 
 WORKDIR /home/
-COPY dataHMI.txt ./
-COPY loaddata.py ./
 COPY run.sh ./
 RUN chmod +x run.sh
 # Installing chrome and chromedriver in order to use selenium
