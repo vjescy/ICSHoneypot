@@ -1,9 +1,9 @@
 #!bin/bash/
 
 # Define the bindings
-binding1="172.17.0.3 plc1.rete"
-binding2="172.17.0.4 plc2.rete"
-binding3="172.17.0.5 plc3.rete"
+binding1="172.25.0.3 plc1.rete"
+binding2="172.25.0.4 plc2.rete"
+binding3="172.25.0.5 plc3.rete"
 
 # Store the hosts file location
 hosts_file="/etc/hosts"

@@ -12,7 +12,7 @@ stop_flag2 = False
 while not stop_flag1:
     try:
         #connect to plc1
-        plc1 = modbus_tcp.TcpMaster('172.17.0.3', 502)
+        plc1 = modbus_tcp.TcpMaster('172.25.0.3', 502)
         plc1.set_timeout(5.0)
         stop_flag1 = True
     except:
@@ -22,7 +22,7 @@ while not stop_flag1:
 while not stop_flag2:
     try:
         #connect to plc2
-        plc2 = modbus_tcp.TcpMaster('172.17.0.4', 502)
+        plc2 = modbus_tcp.TcpMaster('172.25.0.4', 502)
         plc2.set_timeout(5.0)
         stop_flag2 = True
     except:
