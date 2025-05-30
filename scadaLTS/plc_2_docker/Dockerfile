@@ -22,6 +22,7 @@ COPY PLC2.st.dbg scripts/
 COPY config.json ./
 COPY requirements.txt ./
 COPY comm_modbus.py ./
+RUN python3 -m venv .venv
 RUN .venv/bin/pip3 install -r requirements.txt
 # To get the right configuration from config.json
 RUN echo -n "plc2" > plc_name.txt
