@@ -19,5 +19,7 @@ System has been tested on Linux Mint, Lubuntu, Debian and Ubuntu 24.04 (note tha
 The system works on OS with GUI, while running the system on CLI-based OS (e.g inside WSL), there might appear bugs connected to playwright library accessing the OpenPLC interface via browser.
 Sometimes, even on a system with GUI, naviagting the environment and configuring via playwirght might fail. This can happen due to OpenPLCS websites not being loaded, in that case please use the build_system.sh script once again, then it should work.
 
+Sometimes while running the build_system.sh there might appear an error regarding not being able to install some dependencies. Running the script again should resolve that.
+
 ## Addressing and Accessing the interface
 
