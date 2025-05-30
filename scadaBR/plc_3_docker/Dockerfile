@@ -3,7 +3,7 @@ FROM ubuntu:22.04
 USER root
 WORKDIR /root/
 RUN apt-get update && \
-    apt-get -y install git sudo
+    apt-get -y install python3-pip python3-venv git sudo
 
 WORKDIR /home/
 RUN git clone https://github.com/thiagoralves/OpenPLC_v3.git
