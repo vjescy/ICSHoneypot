@@ -21,6 +21,7 @@ COPY PLC3.st scripts/
 COPY PLC3.st.dbg scripts/
 COPY config.json ./
 COPY requirements.txt ./
+RUN python3 -m venv .venv
 RUN .venv/bin/pip3 install -r requirements.txt
 # To get the right configuration from config.json
 RUN echo -n "plc3" > plc_name.txt
