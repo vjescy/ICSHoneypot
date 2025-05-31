@@ -11,6 +11,7 @@ services:
       - "19090:9090"
     networks:
       br_network:
+        ipv4_address: 172.25.0.2
 
   plc1:
     build:
@@ -58,6 +59,7 @@ services:
       - "59090:9090"
     networks:
       br_network:
+        ipv4_address: 172.25.0.6
 
 networks:
   br_network:

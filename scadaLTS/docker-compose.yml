@@ -1,7 +1,8 @@
-version: '3'
+version: '3.8'
+
 services: 
   database:
-    container_name: mysql
+    container_name: lts_mysql
     image: mysql/mysql-server:8.0.32
     ports:
       - "3306:3306"
@@ -15,10 +16,11 @@ services:
       - ./db_data:/var/lib/mysql:rw
       - ./db_conf:/etc/mysql:ro
     command: --log_bin_trust_function_creators=1
-    network_mode: bridge
+    networks:
+      - lts_network
 
   scadalts:
-    container_name: scadalts
+    container_name: lts_scadalts
     image: scadalts/scadalts:latest
     environment:
       - CATALINA_OPTS=-Xmx2G -Xms2G
@@ -29,8 +31,6 @@ services:
     expose: ["8080", "8000"]
     volumes:
       - ./tomcat_log:/usr/local/tomcat/logs:rw
-    links:
-      - database:database
     command:
       - /usr/bin/wait-for-it
       - --host=database
@@ -40,4 +40,63 @@ services:
       - --
       - /usr/local/tomcat/bin/catalina.sh
       - run
-    network_mode: bridge
+    networks:
+      - lts_network
+
+  plc1:
+    build:
+      context: ./plc_1_docker
+    container_name: lts_plc1_sswat
+    ports:
+      - "2502:502"
+      - "28080:8080"
+      - "29090:9090"
+    networks:
+      lts_network:
+        ipv4_address: 172.25.0.3
+
+  plc2:
+    build:
+      context: ./plc_2_docker
+    container_name: lts_plc2_sswat
+    ports:
+      - "3502:502"
+      - "38080:8080"
+      - "39090:9090"
+    networks:
+      lts_network:
+        ipv4_address: 172.25.0.4
+
+  plc3:
+    build:
+      context: ./plc_3_docker
+    container_name: lts_plc3_sswat
+    ports:
+      - "4502:502"
+      - "48080:8080"
+      - "49090:9090"
+    networks:
+      lts_network:
+        ipv4_address: 172.25.0.5
+
+  simulator:
+    build:
+      context: ./physical_sim_docker
+    container_name: lts_sim_sswat
+    ports:
+      - "5502:502"
+      - "58080:8080"
+      - "59090:9090"
+    networks:
+      lts_network:
+        ipv4_address: 172.25.0.6
+
+networks:
+  lts_network:
+    name: lts_network
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.25.0.0/16
+          gateway: 172.25.0.1
