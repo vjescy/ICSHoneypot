@@ -21,7 +21,7 @@ pip install playwright
 playwright install
 
 # Step 5: Run the Python automation script
-echo "[+] Running SCADA-LTS login script..."
+echo "[+] Running SCADA-BR login script..."
 python login_scada.py
 
 # Step 6: Run the Python automation script

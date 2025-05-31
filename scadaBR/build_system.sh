@@ -7,9 +7,16 @@ echo "[+] Updating APT and installing required system packages..."
 sudo apt update
 sudo apt install -y python3-venv docker.io
 
+echo "[+] Ensuring that previous environment is stopped..."
+sudo bash ../scadaLTS/stop_system.sh
+
 echo "[+] Cleaning up old containers..."
 # sudo docker rm -f scada_hmi_sswat plc1_sswat plc2_sswat plc3_sswat sim_sswat 2>/dev/null || true
 sudo docker-compose down -v
+
+echo "[+] Removing Custom defined networks..."
+sudo docker network rm $(sudo docker network ls --filter type=custom -q)
+
 
 echo "[+] Building Docker images..."
 sudo docker-compose up -d --build
