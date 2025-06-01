@@ -4,20 +4,20 @@ set -e  # Exit on any error
 cd "$(dirname "$0")"  # Change to the directory of the script
 
 echo "[+] Ensuring that previous environment is stopped..."
-sudo bash ../scadaBR/stop_system.sh
+sudo bash kill_docker.sh
 
 echo "[+] Updating APT and installing required system packages..."
 sudo apt update
 sudo apt install -y python3-venv docker.io docker-compose
 
-echo "[+] Removing Custom defined networks..."
-sudo docker network rm $(sudo docker network ls --filter type=custom -q)
+echo "[+] Ensuring that previous environment is stopped..."
+sudo bash kill_docker.sh
 
-echo "[+] Cleaning up old containers..."
-# sudo docker rm -f plc1_sswat plc2_sswat plc3_sswat sim_sswat 2>/dev/null || true
+# echo "[+] Cleaning up old containers..."
+# # sudo docker rm -f plc1_sswat plc2_sswat plc3_sswat sim_sswat 2>/dev/null || true
 
-sudo docker-compose down -v
-echo "[+] Building Docker images..."
+# sudo docker-compose down -v
+# echo "[+] Building Docker images..."
 
 # cd ./physical_sim_docker/
 # docker build ./ -t sim_sswat_image

@@ -1,10 +1,19 @@
 #!/bin/bash
 
-# Stop and remove all containers
-sudo docker rm -f $(sudo docker ps -aq)
+echo "[+] Stopping all running Docker containers..."
+running_containers=$(sudo docker ps -q)
+if [ -n "$running_containers" ]; then
+  sudo docker stop $running_containers
+else
+  echo "[-] No running containers found."
+fi
 
-# Remove all images
-sudo docker rmi -f $(sudo docker images -q)
+echo "[+] Removing all custom-defined Docker networks..."
+custom_networks=$(sudo docker network ls --filter type=custom -q)
+if [ -n "$custom_networks" ]; then
+  sudo docker network rm $custom_networks
+else
+  echo "[-] No custom-defined networks found."
+fi
 
-# Remove all user-defined networks (excluding default ones)
-sudo docker network rm $(sudo docker network ls --filter type=custom -q)
+echo "[✓] Cleanup complete."
