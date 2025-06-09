@@ -21,5 +21,10 @@ Sometimes, even on a system with GUI, naviagting the environment and configuring
 
 Sometimes while running the build_system.sh there might appear an error regarding not being able to install some dependencies. Running the script again should resolve that.
 
+Another bug is that when running the system, exiting and tryinh to run it again we may encoutner error saying that container names are in use, in that case use command
+
+#sudo docker prune container -f#
+
 ## Addressing and Accessing the interface
 
+Each evnironment is a different network
