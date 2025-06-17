@@ -28,3 +28,10 @@ Another bug is that when running the system, exiting and tryinh to run it again 
 ## Addressing and Accessing the interface
 
 Each evnironment is a different network
+
+
+## Changes made in either HMI are reflected in the PLCs environemnt.
+
+This is done by point links. There are virtual data sources that are only visible in the graphical view, they are triggered by change on those data sources (data points inside data sources). Then, the value is copied onto registers of PLCs, mapping can be seen on picture below
+![obraz](https://github.com/user-attachments/assets/1ca87e39-610f-4227-939a-0b3e22e0b768)
+
