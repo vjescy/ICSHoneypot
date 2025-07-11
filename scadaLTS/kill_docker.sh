@@ -17,3 +17,5 @@ else
 fi
 
 echo "[✓] Cleanup complete."
+
+sudo docker system prune -f
