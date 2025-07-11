@@ -5,9 +5,8 @@ CONFIG_FILE = "dataHMI.txt"  # Must be in same folder as this script
 with sync_playwright() as p:
     browser = p.chromium.launch(headless=True)
     page = browser.new_page()
-
-    # 1. Go to login page
-    page.goto("http://localhost:8080/Scada-LTS")
+    #1 GOTO PAGE
+    page.goto("http://localhost:8080/Scada-LTS/login.htm", timeout=60000)
 
     # 2. Log in
     page.fill('input[name="username"]', 'admin')
